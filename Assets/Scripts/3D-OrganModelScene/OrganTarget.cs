@@ -8,11 +8,12 @@ public class OrganTarget : MonoBehaviour
     public string organType;
     public bool haveDetailVersion;
 
+    [Header("Label System")]
+    public OrganLabelManager labelManager;  // Assign in inspector
+
     private GameObject currentOrgan;
     private bool showingDetailed = false;
-
     private ObserverBehaviour observer;
-
     public float fadeDuration = 0.5f;
 
     void Awake()
@@ -33,7 +34,6 @@ public class OrganTarget : MonoBehaviour
         if (status.Status == Status.TRACKED || status.Status == Status.EXTENDED_TRACKED)
         {
             SpawnOrgan(showingDetailed);
-
 
             if (haveDetailVersion)
             {
@@ -72,24 +72,102 @@ public class OrganTarget : MonoBehaviour
             currentOrgan = Instantiate(prefab, transform);
             currentOrgan.tag = detailed ? "DETAILED" : "BASIC";
             StartCoroutine(FadeInModel(currentOrgan));
-            
-            // Add PinchToZoom component instead of ARTouchControls
+
+            // Add PinchToZoom component
             if (currentOrgan.GetComponent<PinchToZoom>() == null)
             {
                 currentOrgan.AddComponent<PinchToZoom>();
             }
+
+            // Setup labels - automatically find anchors in the spawned model
+            SetupLabelsForCurrentOrgan(detailed);
         }
 
         showingDetailed = detailed;
     }
 
-    //private void RemoveOrgan()
-    //{
-    //    if (currentOrgan != null)
-    //    {
-    //        Destroy(currentOrgan);
-    //    }
-    //}
+    private void SetupLabelsForCurrentOrgan(bool detailed)
+    {
+        if (labelManager == null)
+        {
+            Debug.LogWarning("Label manager not assigned!");
+            return;
+        }
+
+        if (currentOrgan == null)
+        {
+            Debug.LogWarning("No current organ to setup labels for!");
+            return;
+        }
+
+        // Get the appropriate label definitions from registry
+        OrganVariant variant = OrganRegistry.Instance.GetOrganVariant(organType);
+        if (variant != null)
+        {
+            LabelPoint[] labelDefinitions = detailed ? variant.detailedLabels : variant.basicLabels;
+
+            if (labelDefinitions != null && labelDefinitions.Length > 0)
+            {
+                // Find anchor points in the spawned model
+                LabelPoint[] labelsWithAnchors = FindAnchorsInModel(labelDefinitions, currentOrgan);
+                labelManager.SetupLabels(labelsWithAnchors);
+            }
+        }
+    }
+
+    private LabelPoint[] FindAnchorsInModel(LabelPoint[] labelDefinitions, GameObject model)
+    {
+        LabelPoint[] result = new LabelPoint[labelDefinitions.Length];
+
+        for (int i = 0; i < labelDefinitions.Length; i++)
+        {
+            // Create a copy of the label definition
+            result[i] = new LabelPoint
+            {
+                labelText = labelDefinitions[i].labelText,
+                labelColor = labelDefinitions[i].labelColor,
+                anchorName = labelDefinitions[i].anchorName
+            };
+
+            // Find the anchor transform in the model hierarchy
+            string searchName = labelDefinitions[i].GetAnchorSearchName();
+            Transform foundAnchor = FindChildRecursive(model.transform, searchName);
+
+            if (foundAnchor != null)
+            {
+                result[i].anchorPoint = foundAnchor;
+                Debug.Log($"Found anchor '{searchName}' for label '{labelDefinitions[i].labelText}'");
+            }
+            else
+            {
+                Debug.LogWarning($"Could not find anchor GameObject named '{searchName}' for label '{labelDefinitions[i].labelText}' in model '{model.name}'");
+            }
+        }
+
+        return result;
+    }
+
+    private Transform FindChildRecursive(Transform parent, string childName)
+    {
+        // Check direct children first
+        foreach (Transform child in parent)
+        {
+            if (child.name.Equals(childName, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return child;
+            }
+        }
+
+        // Recursively search in children
+        foreach (Transform child in parent)
+        {
+            Transform found = FindChildRecursive(child, childName);
+            if (found != null)
+                return found;
+        }
+
+        return null;
+    }
 
     public void ToggleOrgan()
     {
@@ -136,9 +214,8 @@ public class OrganTarget : MonoBehaviour
             yield return null;
         }
 
-        model.transform.localScale = originalScale; // Ensure it's exact at end
+        model.transform.localScale = originalScale;
     }
-
 
     private IEnumerator FadeOutModel(GameObject model)
     {
@@ -161,11 +238,12 @@ public class OrganTarget : MonoBehaviour
         }
     }
 
-
     private void RemoveOrganImmediate()
     {
         if (currentOrgan != null)
             Destroy(currentOrgan);
-    }
 
+        if (labelManager != null)
+            labelManager.ClearLabels();
+    }
 }

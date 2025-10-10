@@ -1,21 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using JetBrains.Annotations;
 
 public class OrganRegistry : MonoBehaviour
 {
-    public static OrganRegistry Instance; // this make this script a singelton
+    public static OrganRegistry Instance;
 
     public List<OrganVariant> OrganVariants = new List<OrganVariant>();
-    private Dictionary<string, OrganVariant> organMap = new Dictionary<string, OrganVariant>(); //This dictionary maps an organ name like "heart" to the actual OrganVariant entry so it can be accessed quickly at runtime.
+    private Dictionary<string, OrganVariant> organMap = new Dictionary<string, OrganVariant>();
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            foreach (var organ in OrganVariants)   // Loops through all items in the Inspector list and adds them to the dictionary (organMap) for easy access 
+            foreach (var organ in OrganVariants)
             {
                 if (!organMap.ContainsKey(organ.organName.ToLower()))
                 {
@@ -28,10 +26,9 @@ public class OrganRegistry : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log("OrganRegistry initialized with " + OrganVariants.Count + " variants.");
-
     }
 
-    public GameObject GetBasic(string organName) //Returns the basic prefab for a given organ name.
+    public GameObject GetBasic(string organName)
     {
         organName = organName.ToLower();
 
@@ -39,13 +36,12 @@ public class OrganRegistry : MonoBehaviour
         {
             Debug.Log("Basic Loaded successfully of :- " + organName);
             return organMap[organName].basicPrefab;
-            
         }
-        Debug.LogWarning("Basic prefab is not found of : " +  organName);
+        Debug.LogWarning("Basic prefab is not found of : " + organName);
         return null;
     }
 
-    public GameObject GetDetailed(string organName) //Returns the detailed prefab for a given organ name.
+    public GameObject GetDetailed(string organName)
     {
         organName = organName.ToLower();
 
@@ -55,6 +51,19 @@ public class OrganRegistry : MonoBehaviour
             return organMap[organName].detailedPrefab;
         }
         Debug.LogWarning("Detailed prefab is not found of : " + organName);
+        return null;
+    }
+
+    // New method to get the entire OrganVariant
+    public OrganVariant GetOrganVariant(string organName)
+    {
+        organName = organName.ToLower();
+
+        if (organMap.ContainsKey(organName))
+        {
+            return organMap[organName];
+        }
+        Debug.LogWarning("OrganVariant not found for: " + organName);
         return null;
     }
 }
