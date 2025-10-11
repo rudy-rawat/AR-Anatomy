@@ -72,3 +72,147 @@ AR Anatomy
     ├── Images/                 # Vuforia target images (NCERT diagrams)
     ├── UI/                     # Panels, buttons, and canvas
     └── Materials/              # Line renderers, label visuals
+
+```
+
+#  Setup & Installation Guide for AR Anatomy
+
+## Prerequisites
+
+Before setting up the project, make sure you have the following installed:
+
+* **Unity 2021.3 LTS or newer**
+* **Vuforia Engine SDK** (via Unity Package Manager)
+* **TextMeshPro** (comes pre-installed with Unity)
+* A **webcam or smartphone camera**
+* **NCERT Biology textbook** (Class 11th or 12th) or printed target images
+
+---
+
+##  Step-by-Step Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone (https://github.com/rudy-rawat/AR-Anatomy.git)
+```
+
+### 2. Open the Project in Unity
+
+* Launch **Unity Hub**
+* Click **Add Project** → Select the cloned project folder
+* Open it in Unity Editor
+
+### 3. Install Required Packages
+
+In **Unity**, go to:
+
+```
+Window → Package Manager
+```
+
+Ensure the following packages are installed:
+
+* **Vuforia Engine (AR)**
+
+  * If not installed, click **Add package from git URL...** and paste:
+
+    ```
+    https://library.vuforia.com/Unity/package
+    ```
+* **TextMeshPro** (included by default)
+* **Universal Render Pipeline (optional)** – For improved 3D rendering visuals
+
+### 4. Enable Vuforia in Project Settings
+
+1. Go to **Edit → Project Settings → XR Plug-in Management**
+2. Under **AR**, enable **Vuforia Engine**
+
+### 5. Configure the Vuforia License Key
+
+1. Visit [https://developer.vuforia.com](https://developer.vuforia.com)
+2. Log in and create a new project.
+3. Copy your **Vuforia License Key**.
+4. In Unity, open:
+
+   ```
+   Assets → Resources → VuforiaConfiguration.asset
+   ```
+5. Paste your key into the **App License Key** field.
+
+### 6. Add Target Images for Image Recognition
+
+1. In your Vuforia Developer account, go to **Target Manager**.
+2. Upload the organ images (from NCERT textbook).
+3. Download the **.unitypackage** database file.
+4. Import it into your Unity project (**Assets → Import Package → Custom Package...**).
+
+### 7. Configure Organ Data in Registry
+
+In Unity Editor:
+
+* Open the **OrganRegistry** component.
+* Add each organ entry with:
+
+  * **Organ Name** (e.g., Heart, Brain)
+  * **Basic Prefab** (outer model)
+  * **Detailed Prefab** (cross-section)
+  * **Organ Info** (text description)
+  * **Quiz Questions** (assign question data)
+
+### 8. Configure Scene Hierarchy
+
+Ensure your scene contains:
+
+```
+Main Camera
+Directional Light
+ARCamera (with VuforiaBehaviour)
+ImageTargets (with OrganTarget.cs attached)
+UI Canvas (buttons, info panel, quiz panel)
+OrganRegistry (singleton script)
+```
+
+### 9. Build Settings
+
+1. Go to **File → Build Settings**
+2. Choose your platform (**Android** or **iOS**)
+3. Click **Switch Platform**
+4. Then click **Build and Run**
+
+---
+
+##  Running the App
+
+1. Open the app on your device.
+2. Scan an organ image from your NCERT textbook.
+3. The 3D model will appear over the book page.
+4. Use on-screen controls to:
+
+   * **Toggle** between basic/detailed view.
+   * **Show/Hide Labels**.
+   * **Open Info Panel**.
+   * **Start Quiz**.
+   * **Refresh Model.**
+5. Use **pinch gestures** to zoom and **drag** to rotate the model.
+
+---
+
+##  Troubleshooting
+
+* **Model not appearing:** Check if your Vuforia license key and image target database are correctly set.
+* **UI buttons not responding:** Ensure all button references are linked to `OrganToggleUI.cs` in the inspector.
+* **Quiz not starting:** Verify that quiz questions are linked under the correct organ in `OrganRegistry`.
+
+---
+
+##  Developer Notes
+
+* To add new organs, simply create new prefabs and register them in `OrganRegistry.cs`.
+* The project is modular — all systems (labels, info, quiz) can be extended independently.
+* Recommended build platform: **Android 10+**.
+
+---
+
+###  Enjoy exploring human anatomy in Augmented Reality with *AR Anatomy!*
+
