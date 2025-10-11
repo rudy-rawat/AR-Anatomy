@@ -117,5 +117,5 @@ MonoBehaviour:
   labelPrefab: {fileID: 5943795976911202364, guid: 6f23581d62a25284db54eee1040c34f3, type: 3}
   labelCanvas: {fileID: 7394514071237098809}
   lineMaterial: {fileID: 2100000, guid: ccdb6b6192b36974c8e52e8332565cd7, type: 2}
-  labelDistance: 0.5
+  labelDistance: 0.8
   showLabels: 1

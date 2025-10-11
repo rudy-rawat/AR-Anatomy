@@ -17,14 +17,18 @@ public class LabelUI : MonoBehaviour
     private Canvas canvas;
     private float labelDistance;
     private LineRenderer lineRenderer;
+    private bool isRightSide;
+    private bool faceCameraX;
 
-    public void Initialize(LabelPoint point, float distance, Material lineMat)
+    public void Initialize(LabelPoint point, float distance, Material lineMat, bool isRightSide, bool faceCameraX)
     {
         labelPoint = point;
         labelDistance = distance;
         lineMaterial = lineMat;
         mainCamera = Camera.main;
         canvas = GetComponentInParent<Canvas>();
+        this.isRightSide = isRightSide;
+        this.faceCameraX = faceCameraX;
 
         // Get text from anchor GameObject name
         if (labelPoint.anchorPoint != null)
@@ -43,16 +47,27 @@ public class LabelUI : MonoBehaviour
             backgroundImage.color = new Color(0.1f, 0.1f, 0.1f, 0.8f);
         }
 
-        // Add FaceCamera to this root so it faces camera
-        if (GetComponent<FaceCamera>() == null)
+        // Add FaceCamera to this root so it faces camera (if enabled)
+        if (faceCameraX)
         {
-            gameObject.AddComponent<FaceCamera>();
+            if (GetComponent<FaceCamera>() == null)
+            {
+                gameObject.AddComponent<FaceCamera>();
+            }
+        }
+        else
+        {
+            // Remove FaceCamera if not needed
+            FaceCamera faceCamera = GetComponent<FaceCamera>();
+            if (faceCamera != null)
+            {
+                Destroy(faceCamera);
+            }
         }
 
         // Create line renderer
         CreateLine();
-
-        Debug.Log($"Label initialized: {labelText.text}");
+        Debug.Log($"Label initialized: {labelText.text} on {(isRightSide ? "+X" : "-X")} side");
     }
 
     private void CreateLine()
@@ -60,7 +75,6 @@ public class LabelUI : MonoBehaviour
         GameObject lineObj = new GameObject("Line");
         lineObj.transform.SetParent(transform);
         lineObj.transform.localPosition = Vector3.zero;
-
         lineRenderer = lineObj.AddComponent<LineRenderer>();
         lineRenderer.material = lineMaterial != null ? lineMaterial : new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = labelPoint.labelColor;
@@ -71,10 +85,12 @@ public class LabelUI : MonoBehaviour
         lineRenderer.useWorldSpace = true;
     }
 
-    public void UpdatePosition()
+    public void UpdatePosition(Camera cam, bool faceCameraX)
     {
-        if (labelPoint.anchorPoint == null || mainCamera == null)
+        if (labelPoint.anchorPoint == null || cam == null)
             return;
+
+        mainCamera = cam;
 
         Vector3 anchorWorldPos = labelPoint.anchorPoint.position;
 
@@ -88,11 +104,21 @@ public class LabelUI : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        // Calculate label position offset to the right of anchor
-        Vector3 cameraRight = mainCamera.transform.right;
-        Vector3 labelWorldPos = anchorWorldPos + cameraRight * labelDistance;
+        // Calculate label position based on which side it should be on
+        Vector3 labelWorldPos;
 
-        // Position label (FaceCamera will handle rotation)
+        if (isRightSide)
+        {
+            // +X side (right side)
+            labelWorldPos = anchorWorldPos + Vector3.right * labelDistance;
+        }
+        else
+        {
+            // -X side (left side)
+            labelWorldPos = anchorWorldPos + Vector3.left * labelDistance;
+        }
+
+        // Position label
         transform.position = labelWorldPos;
 
         // Update line positions

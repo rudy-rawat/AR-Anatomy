@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: UrinarySystem
   haveDetailVersion: 0
-  labelManager: {fileID: 0}
+  labelManager: {fileID: 1610848447}
   fadeDuration: 0.5
 --- !u!114 &368207387
 MonoBehaviour:
@@ -1316,7 +1316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Heart
   haveDetailVersion: 1
-  labelManager: {fileID: 0}
+  labelManager: {fileID: 1231787760}
   fadeDuration: 0.5
 --- !u!114 &766732845
 MonoBehaviour:
@@ -1983,7 +1983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Brain
   haveDetailVersion: 1
-  labelManager: {fileID: 0}
+  labelManager: {fileID: 1082478518}
   fadeDuration: 0.5
 --- !u!114 &915982435
 MonoBehaviour:
@@ -2432,6 +2432,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
   m_PrefabInstance: {fileID: 1082478516}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1082478518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8172656175322123891, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+  m_PrefabInstance: {fileID: 1082478516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1bd0a7b76e3384ea0d0f86bf811696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087466396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2972,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
   m_PrefabInstance: {fileID: 1231787758}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1231787760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8172656175322123891, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+  m_PrefabInstance: {fileID: 1231787758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1bd0a7b76e3384ea0d0f86bf811696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375629848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,6 +3798,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
   m_PrefabInstance: {fileID: 1610848445}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610848447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8172656175322123891, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+  m_PrefabInstance: {fileID: 1610848445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1bd0a7b76e3384ea0d0f86bf811696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1633576911
 GameObject:
   m_ObjectHideFlags: 0
