@@ -16,6 +16,10 @@ public class OrganToggleUI : MonoBehaviour
     public GameObject infoPanel;
     public GameObject quizPanel;
 
+    // Cache to avoid repeated FindObjectsByType calls
+    private OrganLabelManager[] cachedLabelManagers;
+    private bool labelsVisible = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -123,7 +127,7 @@ public class OrganToggleUI : MonoBehaviour
     private void OnToggleLabelsClicked()
     {
         // Find all label managers and toggle them
-        OrganLabelManager[] labelManagers = UnityEngine.Object.FindObjectsByType<OrganLabelManager>(FindObjectsSortMode.None); 
+        OrganLabelManager[] labelManagers = UnityEngine.Object.FindObjectsByType<OrganLabelManager>(FindObjectsSortMode.None);
         foreach (OrganLabelManager manager in labelManagers)
         {
             manager.ToggleLabels(!manager.showLabels);
@@ -162,10 +166,11 @@ public class OrganToggleUI : MonoBehaviour
 
         Debug.Log($"Quiz Panel current state: {quizPanel.activeSelf}");
 
-        bool newState = !(quizPanel.activeSelf);
-        //Debug.Log($"Setting Quiz Panel to: {newState}");
+        bool newState = !quizPanel.activeSelf;
+        Debug.Log($"Setting Quiz Panel to: {newState}");
 
         quizPanel.SetActive(newState);
+
         Debug.Log($"Quiz Panel state after set: {quizPanel.activeSelf}");
 
         // Start quiz for current organ
@@ -261,7 +266,7 @@ public class OrganToggleUI : MonoBehaviour
         }
 
         // Clear spawned labels from all label managers
-        OrganLabelManager[] labelManagers = UnityEngine.Object.FindObjectsByType<OrganLabelManager>(FindObjectsSortMode.None); 
+        OrganLabelManager[] labelManagers = UnityEngine.Object.FindObjectsByType<OrganLabelManager>(FindObjectsSortMode.None);
         foreach (var manager in labelManagers)
         {
             manager.ClearLabels();

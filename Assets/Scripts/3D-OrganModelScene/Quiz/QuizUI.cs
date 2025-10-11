@@ -14,6 +14,7 @@ public class QuizUI : MonoBehaviour
     public TextMeshProUGUI feedbackText;
     public Button nextButton;
     public Button closeButton;
+    public Button cancelButton;
     public GameObject resultPanel;
     public TextMeshProUGUI resultText;
 
@@ -32,6 +33,9 @@ public class QuizUI : MonoBehaviour
 
         if (closeButton != null)
             closeButton.onClick.AddListener(ClosePanel);
+
+        if (cancelButton != null)
+            cancelButton.onClick.AddListener(ClosePanel);
 
         // Setup option buttons
         for (int i = 0; i < optionButtons.Length; i++)
