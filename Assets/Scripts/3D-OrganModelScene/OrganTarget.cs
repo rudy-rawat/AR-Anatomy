@@ -36,19 +36,20 @@ public class OrganTarget : MonoBehaviour
         {
             SpawnOrgan(showingDetailed);
 
-            if (haveDetailVersion)
+            if (OrganToggleUI.Instance != null)
             {
-                if (OrganToggleUI.Instance != null)
+                // Show extra buttons (labels, info, quiz)
+                OrganToggleUI.Instance.ShowExtraButtons();
+
+                // Show toggle button only if organ has detailed version
+                if (haveDetailVersion)
                     OrganToggleUI.Instance.ShowToggleButton();
                 else
-                    Debug.LogWarning("OrganToggleUI Instance is null!");
+                    OrganToggleUI.Instance.HideToggleButton();
             }
             else
             {
-                if (OrganToggleUI.Instance != null)
-                    OrganToggleUI.Instance.HideToggleButton();
-                else
-                    Debug.LogWarning("OrganToggleUI Instance is null!");
+                Debug.LogWarning("OrganToggleUI Instance is null!");
             }
         }
         else

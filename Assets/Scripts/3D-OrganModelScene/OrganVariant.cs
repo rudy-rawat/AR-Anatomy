@@ -8,7 +8,10 @@ public class OrganVariant
     public GameObject basicPrefab;        // basic outer heart
     public GameObject detailedPrefab;     // dissected inner heart
 
-    [Header("Labels")]
-    public LabelPoint[] basicLabels;      // Labels for basic version (anchors auto-found)
-    public LabelPoint[] detailedLabels;   // Labels for detailed version (anchors auto-found)
+    [Header("Organ Information")]
+    [TextArea(5, 10)]
+    public string organInfo;              // General information about the organ displayed in Info Panel
+
+    [Header("Quiz Questions")]
+    public QuizQuestion[] quizQuestions;  // Array of quiz questions (add 10, system picks 5 randomly)
 }
