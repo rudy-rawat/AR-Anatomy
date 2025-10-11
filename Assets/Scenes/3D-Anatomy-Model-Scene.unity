@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: UrinarySystem
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &368207387
 MonoBehaviour:
@@ -357,6 +357,112 @@ Transform:
   - {fileID: 1375629849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &576595332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1176438193}
+    m_Modifications:
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2340
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172656175322123891, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: labelDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720027509083196970, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+      propertyPath: m_Name
+      value: LabelCanvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+--- !u!224 &576595333 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4016021754411272440, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+  m_PrefabInstance: {fileID: 576595332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &629462003
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &629462007
 MonoBehaviour:
@@ -541,7 +647,7 @@ MonoBehaviour:
     basicLabels: []
     detailedLabels: []
   - organName: Kidney
-    organDescription: 
+    organDescription: A well Known Organ
     basicPrefab: {fileID: 7938959425842143306, guid: dc628d4617e084f40b7cb6aaf1a738a8, type: 3}
     detailedPrefab: {fileID: 4813438209157103528, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
     basicLabels: []
@@ -752,7 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Heart
   haveDetailVersion: 1
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &766732845
 MonoBehaviour:
@@ -1000,6 +1106,67 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 787262057}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1001 &839679501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1176438193}
+    m_Modifications:
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813438209157103528, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_Name
+      value: Detailed Kidney
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813438209157103528, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
 --- !u!1 &915982431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Brain
   haveDetailVersion: 1
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &915982435
 MonoBehaviour:
@@ -1190,7 +1357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &935246926
 MonoBehaviour:
@@ -1282,6 +1449,17 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 935246927}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &1038420622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8172656175322123891, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
+  m_PrefabInstance: {fileID: 576595332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1bd0a7b76e3384ea0d0f86bf811696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087466396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1087466400
 MonoBehaviour:
@@ -1472,7 +1650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1128866626
 MonoBehaviour:
@@ -1598,7 +1776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Kidney
   haveDetailVersion: 1
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 1038420622}
   fadeDuration: 0.5
 --- !u!114 &1176438191
 MonoBehaviour:
@@ -1684,7 +1862,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1979943856}
+  - {fileID: 576595333}
+  - {fileID: 1794403443}
   m_Father: {fileID: 492799570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1176438194
@@ -1755,7 +1934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1375629852
 MonoBehaviour:
@@ -1896,7 +2075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Lungs
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1446168023
 MonoBehaviour:
@@ -2262,7 +2441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1633576915
 MonoBehaviour:
@@ -2643,7 +2822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Thyroid
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1697296602
 MonoBehaviour:
@@ -2784,7 +2963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1708691146
 MonoBehaviour:
@@ -2925,7 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: 
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &1729787881
 MonoBehaviour:
@@ -3096,21 +3275,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1979943852 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1317403785042219316, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-  m_PrefabInstance: {fileID: 2298576170541450861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1bd0a7b76e3384ea0d0f86bf811696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &1979943856 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-  m_PrefabInstance: {fileID: 2298576170541450861}
+--- !u!4 &1794403443 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1378074873199241214, guid: b7b226c026f1c3f47b9c288616de3fd1, type: 3}
+  m_PrefabInstance: {fileID: 839679501}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2002309613
 GameObject:
@@ -3161,7 +3329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organType: Skull
   haveDetailVersion: 0
-  labelManager: {fileID: 1979943852}
+  labelManager: {fileID: 0}
   fadeDuration: 0.5
 --- !u!114 &2002309617
 MonoBehaviour:
@@ -3273,115 +3441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &2298576170541450861
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1176438193}
-    m_Modifications:
-    - target: {fileID: 1317403785042219316, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: showLabels
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1317403785042219316, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: labelDistance
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422121169471697375, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2767477345886536228, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_Name
-      value: LabelCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6561080880456207915, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1658317490}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 00d1dfc8f70a4ec42b0989b2d225ca71, type: 3}
 --- !u!114 &3147189615820906392
 MonoBehaviour:
   m_ObjectHideFlags: 0

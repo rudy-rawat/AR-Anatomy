@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BASIC
   - DETAILED
+  - LabelAnchor
   layers:
   - Default
   - TransparentFX

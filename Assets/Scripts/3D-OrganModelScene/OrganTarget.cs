@@ -1,6 +1,7 @@
 using UnityEngine;
 using Vuforia;
 using System.Collections;
+using System.Collections.Generic;
 
 public class OrganTarget : MonoBehaviour
 {
@@ -100,51 +101,39 @@ public class OrganTarget : MonoBehaviour
             return;
         }
 
-        // Get the appropriate label definitions from registry
-        OrganVariant variant = OrganRegistry.Instance.GetOrganVariant(organType);
-        if (variant != null)
-        {
-            LabelPoint[] labelDefinitions = detailed ? variant.detailedLabels : variant.basicLabels;
-
-            if (labelDefinitions != null && labelDefinitions.Length > 0)
-            {
-                // Find anchor points in the spawned model
-                LabelPoint[] labelsWithAnchors = FindAnchorsInModel(labelDefinitions, currentOrgan);
-                labelManager.SetupLabels(labelsWithAnchors);
-            }
-        }
+        // Find all label anchors automatically in the spawned model
+        LabelPoint[] labelsWithAnchors = FindAnchorsInModel(null, currentOrgan);
+        labelManager.SetupLabels(labelsWithAnchors);
     }
 
     private LabelPoint[] FindAnchorsInModel(LabelPoint[] labelDefinitions, GameObject model)
     {
-        LabelPoint[] result = new LabelPoint[labelDefinitions.Length];
+        // Find all GameObjects with specific tag or naming pattern
+        // For simplicity, find all children that could be label anchors
+        Transform[] allChildren = model.GetComponentsInChildren<Transform>();
 
-        for (int i = 0; i < labelDefinitions.Length; i++)
+        List<LabelPoint> foundLabels = new List<LabelPoint>();
+
+        foreach (Transform child in allChildren)
         {
-            // Create a copy of the label definition
-            result[i] = new LabelPoint
-            {
-                labelText = labelDefinitions[i].labelText,
-                labelColor = labelDefinitions[i].labelColor,
-                anchorName = labelDefinitions[i].anchorName
-            };
+            // Skip the root and renderer objects
+            if (child == model.transform || child.GetComponent<Renderer>() != null)
+                continue;
 
-            // Find the anchor transform in the model hierarchy
-            string searchName = labelDefinitions[i].GetAnchorSearchName();
-            Transform foundAnchor = FindChildRecursive(model.transform, searchName);
-
-            if (foundAnchor != null)
+            // Check if this looks like a label anchor (empty GameObject or tagged)
+            if (child.childCount == 0 || child.CompareTag("LabelAnchor"))
             {
-                result[i].anchorPoint = foundAnchor;
-                Debug.Log($"Found anchor '{searchName}' for label '{labelDefinitions[i].labelText}'");
-            }
-            else
-            {
-                Debug.LogWarning($"Could not find anchor GameObject named '{searchName}' for label '{labelDefinitions[i].labelText}' in model '{model.name}'");
+                LabelPoint point = new LabelPoint
+                {
+                    anchorPoint = child,
+                    labelColor = Color.white  // Default color, can be customized later
+                };
+                foundLabels.Add(point);
+                Debug.Log($"Found label anchor: {child.name}");
             }
         }
 
-        return result;
+        return foundLabels.ToArray();
     }
 
     private Transform FindChildRecursive(Transform parent, string childName)

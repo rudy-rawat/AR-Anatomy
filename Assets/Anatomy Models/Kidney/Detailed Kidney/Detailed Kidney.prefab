@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5427584644337383474}
   m_Layer: 0
   m_Name: Pelvis
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242216382980036438}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0099, y: 0.0416, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.009899997, y: 0.0416, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592593807833835802
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1404013285873594838}
   m_Layer: 0
   m_Name: Medullary Pyramid
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,51 +55,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592593807833835802}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0036, y: 0.0759, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0035999895, y: 0.07590001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &892399601472948244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6076319060823817681}
-  m_Layer: 0
-  m_Name: Labels
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6076319060823817681
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892399601472948244}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2216738604226038877}
-  - {fileID: 1404013285873594838}
-  - {fileID: 1234697691071796372}
-  - {fileID: 1559961775689448521}
-  - {fileID: 6448411444018207612}
-  - {fileID: 5427584644337383474}
-  - {fileID: 8071436445528411473}
-  - {fileID: 1113270000955486645}
-  - {fileID: 896190694833918900}
   m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022471693490649756
@@ -371,7 +331,7 @@ GameObject:
   - component: {fileID: 1113270000955486645}
   m_Layer: 0
   m_Name: Renal Capsule
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,12 +344,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2415005007203794235}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: 0, z: -0.01067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.009, y: 0, z: -0.010670001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4770851466892522158
 GameObject:
@@ -508,7 +468,15 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8556699583903018437}
-  - {fileID: 6076319060823817681}
+  - {fileID: 2216738604226038877}
+  - {fileID: 1404013285873594838}
+  - {fileID: 1234697691071796372}
+  - {fileID: 1559961775689448521}
+  - {fileID: 6448411444018207612}
+  - {fileID: 5427584644337383474}
+  - {fileID: 8071436445528411473}
+  - {fileID: 1113270000955486645}
+  - {fileID: 896190694833918900}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &5564923384673428554
@@ -539,7 +507,7 @@ GameObject:
   - component: {fileID: 2216738604226038877}
   m_Layer: 0
   m_Name: Renal Column
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,12 +520,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5124181156865164134}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0421, y: 0.0569, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04210001, y: 0.056899995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5494589557738972175
 GameObject:
@@ -725,7 +693,7 @@ GameObject:
   - component: {fileID: 6448411444018207612}
   m_Layer: 0
   m_Name: Renal Vein
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,12 +706,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7501013053787065488}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0084, y: 0.0338, z: 0.0127}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008400011, y: 0.0338, z: 0.012700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7827842072897553142
 GameObject:
@@ -756,7 +724,7 @@ GameObject:
   - component: {fileID: 1234697691071796372}
   m_Layer: 0
   m_Name: Calyx
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,12 +737,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7827842072897553142}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02256, y: 0.05988, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.022559999, y: 0.059880003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9155848958561601159
 GameObject:
@@ -787,7 +755,7 @@ GameObject:
   - component: {fileID: 896190694833918900}
   m_Layer: 0
   m_Name: Cortex
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,12 +768,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9155848958561601159}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0092, y: -0.00039, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.009200014, y: -0.00038999974, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9170893237381738092
 GameObject:
@@ -904,7 +872,7 @@ GameObject:
   - component: {fileID: 1559961775689448521}
   m_Layer: 0
   m_Name: Renal Artery
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -917,12 +885,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9196142649420788054}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0126, y: 0.0376, z: 0.0034}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01259999, y: 0.037600003, z: 0.0034000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9197990055950859609
 GameObject:
@@ -935,7 +903,7 @@ GameObject:
   - component: {fileID: 8071436445528411473}
   m_Layer: 0
   m_Name: Ureter
-  m_TagString: Untagged
+  m_TagString: LabelAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,10 +916,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9197990055950859609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00217, y: 0.00771, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0021700035, y: 0.0077099996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6076319060823817681}
+  m_Father: {fileID: 1378074873199241214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

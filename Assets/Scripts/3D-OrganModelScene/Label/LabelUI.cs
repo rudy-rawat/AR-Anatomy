@@ -5,38 +5,70 @@ using TMPro;
 public class LabelUI : MonoBehaviour
 {
     [Header("UI References")]
+    public Image backgroundImage;
     public TextMeshProUGUI labelText;
-    public Image lineImage;
-    public RectTransform lineRect;
+
+    [Header("Line Settings")]
+    public Material lineMaterial;
+    public float lineWidth = 0.002f;
 
     private LabelPoint labelPoint;
     private Camera mainCamera;
-    private RectTransform rectTransform;
     private Canvas canvas;
-    private float lineLength;
     private float labelDistance;
+    private LineRenderer lineRenderer;
 
-    public void Initialize(LabelPoint point, float length, float distance)
+    public void Initialize(LabelPoint point, float distance, Material lineMat)
     {
         labelPoint = point;
-        lineLength = length;
         labelDistance = distance;
+        lineMaterial = lineMat;
         mainCamera = Camera.main;
-        rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
 
-        // Setup text
-        if (labelText != null)
+        // Get text from anchor GameObject name
+        if (labelPoint.anchorPoint != null)
         {
-            labelText.text = labelPoint.labelText;
-            labelText.color = labelPoint.labelColor;
+            string anchorName = labelPoint.anchorPoint.name;
+            if (labelText != null)
+            {
+                labelText.text = anchorName;
+                labelText.color = labelPoint.labelColor;
+            }
         }
 
-        // Setup line color
-        if (lineImage != null)
+        // Setup background
+        if (backgroundImage != null)
         {
-            lineImage.color = labelPoint.labelColor;
+            backgroundImage.color = new Color(0.1f, 0.1f, 0.1f, 0.8f);
         }
+
+        // Add FaceCamera to this root so it faces camera
+        if (GetComponent<FaceCamera>() == null)
+        {
+            gameObject.AddComponent<FaceCamera>();
+        }
+
+        // Create line renderer
+        CreateLine();
+
+        Debug.Log($"Label initialized: {labelText.text}");
+    }
+
+    private void CreateLine()
+    {
+        GameObject lineObj = new GameObject("Line");
+        lineObj.transform.SetParent(transform);
+        lineObj.transform.localPosition = Vector3.zero;
+
+        lineRenderer = lineObj.AddComponent<LineRenderer>();
+        lineRenderer.material = lineMaterial != null ? lineMaterial : new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = labelPoint.labelColor;
+        lineRenderer.endColor = labelPoint.labelColor;
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+        lineRenderer.positionCount = 2;
+        lineRenderer.useWorldSpace = true;
     }
 
     public void UpdatePosition()
@@ -46,7 +78,7 @@ public class LabelUI : MonoBehaviour
 
         Vector3 anchorWorldPos = labelPoint.anchorPoint.position;
 
-        // Check if point is behind camera
+        // Check if behind camera
         Vector3 viewPos = mainCamera.WorldToViewportPoint(anchorWorldPos);
         if (viewPos.z < 0)
         {
@@ -56,100 +88,18 @@ public class LabelUI : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        // For World Space Canvas - position directly in world space
-        if (canvas.renderMode == RenderMode.WorldSpace)
-        {
-            UpdateWorldSpacePosition(anchorWorldPos);
-        }
-        else
-        {
-            // Fallback for Screen Space (less ideal for AR)
-            UpdateScreenSpacePosition(anchorWorldPos);
-        }
-    }
-
-    private void UpdateWorldSpacePosition(Vector3 anchorWorldPos)
-    {
-        // Calculate direction from anchor to camera
-        Vector3 toCamera = (mainCamera.transform.position - anchorWorldPos).normalized;
-
-        // Calculate offset direction (up and to the right relative to camera)
+        // Calculate label position offset to the right of anchor
         Vector3 cameraRight = mainCamera.transform.right;
-        Vector3 cameraUp = mainCamera.transform.up;
-        Vector3 offsetDirection = (cameraRight + cameraUp * 0.5f).normalized;
+        Vector3 labelWorldPos = anchorWorldPos + cameraRight * labelDistance;
 
-        // Position label at offset from anchor
-        Vector3 labelWorldPos = anchorWorldPos + offsetDirection * labelDistance;
-
-        // Set position
+        // Position label (FaceCamera will handle rotation)
         transform.position = labelWorldPos;
 
-        // Make label face camera
-        transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-                         mainCamera.transform.rotation * Vector3.up);
-
-        // Update line
-        if (lineRect != null)
+        // Update line positions
+        if (lineRenderer != null)
         {
-            UpdateWorldSpaceLine(anchorWorldPos, labelWorldPos);
+            lineRenderer.SetPosition(0, anchorWorldPos);
+            lineRenderer.SetPosition(1, labelWorldPos);
         }
-    }
-
-    private void UpdateWorldSpaceLine(Vector3 startWorldPos, Vector3 endWorldPos)
-    {
-        // Position line at anchor point in world space
-        lineRect.position = startWorldPos;
-
-        // Calculate direction
-        Vector3 direction = endWorldPos - startWorldPos;
-        float distance = direction.magnitude;
-
-        // Make line look at the label
-        lineRect.LookAt(endWorldPos, mainCamera.transform.up);
-
-        // Set line length (scale in X direction)
-        float worldScale = canvas.transform.lossyScale.x;
-        lineRect.sizeDelta = new Vector2(distance / worldScale, lineRect.sizeDelta.y);
-    }
-
-    private void UpdateScreenSpacePosition(Vector3 anchorWorldPos)
-    {
-        Vector3 screenPos = mainCamera.WorldToScreenPoint(anchorWorldPos);
-
-        // Convert to canvas position
-        Vector2 canvasPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.transform as RectTransform,
-            screenPos,
-            canvas.worldCamera,
-            out canvasPos
-        );
-
-        // Offset label to the side
-        Vector2 labelOffset = new Vector2(lineLength, lineLength * 0.5f);
-        rectTransform.anchoredPosition = canvasPos + labelOffset;
-
-        // Update line
-        if (lineRect != null)
-        {
-            UpdateScreenSpaceLine(canvasPos, rectTransform.anchoredPosition);
-        }
-    }
-
-    private void UpdateScreenSpaceLine(Vector2 startPos, Vector2 endPos)
-    {
-        // Position line at anchor point
-        lineRect.anchoredPosition = startPos;
-
-        // Calculate direction and distance
-        Vector2 direction = endPos - startPos;
-        float distance = direction.magnitude;
-
-        // Rotate line to point toward label
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        lineRect.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Set line length
-        lineRect.sizeDelta = new Vector2(distance, lineRect.sizeDelta.y);
     }
 }

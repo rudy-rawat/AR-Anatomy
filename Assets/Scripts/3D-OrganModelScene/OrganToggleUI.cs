@@ -11,7 +11,7 @@ public class OrganToggleUI : MonoBehaviour
     public Button toggleButton;
     public Button refreshButton;
 
-    
+
 
     private void Awake()
     {
@@ -75,6 +75,7 @@ public class OrganToggleUI : MonoBehaviour
 
     public void ClearAllModels()
     {
+        // Clear organ models
         string[] targetTags = { "BASIC", "DETAILED" };
 
         foreach (string tag in targetTags)
@@ -86,12 +87,22 @@ public class OrganToggleUI : MonoBehaviour
             }
         }
 
+        // Clear spawned labels from all label managers
+        GameObject[] labelManagers = GameObject.FindGameObjectsWithTag("LabelManager");
+        foreach (GameObject managerObj in labelManagers)
+        {
+            OrganLabelManager labelManager = managerObj.GetComponent<OrganLabelManager>();
+            if (labelManager != null)
+            {
+                labelManager.ClearLabels();
+            }
+        }
+
         if (OrganToggleUI.Instance != null)
         {
             OrganToggleUI.Instance.HideToggleButton();
         }
 
-        Debug.Log("All BASIC and DETAILED models cleared!");
+        Debug.Log("All BASIC and DETAILED models and labels cleared!");
     }
-
 }
