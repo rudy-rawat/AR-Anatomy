@@ -4,217 +4,265 @@
 ![Engine](https://img.shields.io/badge/engine-Unity-black.svg)
 ![AR SDK](https://img.shields.io/badge/AR-Vuforia-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Android-lightgrey.svg)
-![Domain](https://img.shields.io/badge/domain-Educational%20AR-blue.svg)
 ![Architecture](https://img.shields.io/badge/architecture-modular%20systems-informational.svg)
 
-**AR Anatomy** is an **educational Augmented Reality application** that enables students to scan **NCERT human anatomy textbook images** and interact with **realistic 3D organ models** in real time.
+**AR Anatomy** is an **educational Augmented Reality (AR) application** that allows users to scan **NCERT human anatomy textbook images** and visualize **interactive 3D organ models** in real time.
 
-The project focuses on:
-- Visual learning through AR
-- Interactive 3D anatomy exploration
-- Modular, scalable Unity architecture
-- Curriculum-aligned educational content
+The project is designed with a **modular, data-driven Unity architecture**, focusing on scalability, technical clarity, and educational usability.
 
 ---
 
-## 📸 Application Preview
+## 📸 Screenshots
 
-![Home Screen](docs/images/home_screen.png)
+<table>
+  <tr>
+    <td align="center"><img src="docs/images/home_screen.png" width="200" alt="Home Screen"/></td>
+    <td align="center"><img src="docs/images/detailed_model_labels.jpeg" width="200" alt="AR View"/></td>
+    <td align="center"><img src="docs/images/quiz_result.jpeg" width="200" alt="Quiz Result"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Home Screen</b></td>
+    <td align="center"><b>AR Visualization</b></td>
+    <td align="center"><b>Quiz System</b></td>
+  </tr>
+</table>
+
+---
+
+## 📂 Repository Structure
+
+```text
+AR-Anatomy/
+│
+├── README.md
+├── docs/
+│   └── images/
+│       ├── home_screen.png
+│       ├── basic_model.png
+│       ├── detailed_model_labels.png
+│       ├── quiz_result.png
+│       └── organ_description.png
+│
+├── Assets/
+│   ├── Scripts/
+│   │   ├── OrganVariant.cs
+│   │   ├── OrganRegistry.cs
+│   │   ├── OrganTarget.cs
+│   │   ├── OrganToggleUI.cs
+│   │   ├── PinchToZoom.cs
+│   │   ├── FaceCamera.cs
+│   │   └── SceneChanger.cs
+│   └── Prefabs/
+│
+└── ProjectSettings/
+```
 
 ---
 
 ## 📱 Project Overview
 
 | Property | Details |
-|--------|---------|
-| **Engine** | Unity |
-| **AR SDK** | Vuforia |
-| **Platform** | Android |
-| **Domain** | Educational / AR |
-| **Interaction** | Touch (Pinch, Rotate, UI-based) |
-| **Content Type** | NCERT-aligned Human Anatomy |
-
----
-
-## 🧭 Application Flow
-
-1. User launches the app
-2. Selects learning mode
-3. Scans NCERT textbook image
-4. AR organ model spawns
-5. User interacts with:
-   - 3D models
-   - Labels
-   - Quiz
-   - Description panels
-
----
-
-# 📚 Core Features
-
-## 1️⃣ AR Textbook Image Recognition
-
-- Uses **Vuforia Image Targets**
-- Detects NCERT textbook organ diagrams
-- Spawns corresponding organ model in AR space
-- Handles tracking loss and recovery gracefully
-
----
-
-## 2️⃣ Basic Organ Model (Outer Anatomy)
-
-![Basic Model](docs/images/basic_model.jpeg)
-
-### Features
-- Displays external structure of the organ
-- Touch-based interaction:
-  - Pinch-to-zoom
-  - Single-finger rotation (Y-axis)
-- Optimized to reduce AR jitter
-
-### Stability Tools
-- **Refresh Button**
-  - Clears active models
-  - Resets AR state
-  - Helps recover from tracking instability
-
----
-
-## 3️⃣ Detailed Organ Model (Cross-Section View)
-
-![Detailed Model](docs/images/detailed_model_labels.jpeg)
-
-### Features
-- Cross-sectional anatomical model
-- Highlights internal structures
-- Toggle between basic ↔ detailed view
-
-### Dynamic Label System
-- Labels are **not hardcoded**
-- Each organ prefab contains:
-  - Empty GameObjects as label anchors
-  - Label names defined via Inspector
-- Labels:
-  - Spawn dynamically
-  - Always face the camera
-  - Improve readability in AR
-
----
-
-## 4️⃣ Organ Registry Architecture
-
-Centralized system that manages all organ data.
-
-### Stored Information
-- Organ Name
-- Description
-- Basic Model Prefab
-- Detailed Model Prefab
-
-### Benefits
-- Easy to add new organs
-- Clean separation of data & logic
-- Scalable for future expansion
-
----
-
-## 5️⃣ Interactive Quiz System
-
-![Quiz Result](docs/images/quiz_result.jpeg)
-
-### Quiz Logic
-- Organ-specific questions
-- Each quiz attempt:
-  - 5 random questions
-  - Selected from ~10-question database
-- Prevents repetition within a single attempt
-
-### Evaluation
-- Instant feedback
-- Displays:
-  - Score
-  - Percentage
-  - Grade (A+, A, etc.)
-
----
-
-## 6️⃣ Organ Description Panel
-
-![Organ Description](docs/images/organ_description.jpeg)
-
-### Information Displayed
-- Organ name
-- Functional description
-- Location in the human body
-
-### Design Goals
-- Minimal UI obstruction
-- Maintains AR immersion
-- Supports conceptual understanding
-
----
-
-# 🧠 Interaction System
-
-## Touch Controls
-| Gesture | Action |
-|------|-------|
-| Pinch | Zoom In / Out |
-| Single Finger Drag | Rotate Model |
-| UI Button | Toggle / Refresh / Info |
-
----
-
-## UI Controls
-- Toggle Model Button
-- Refresh AR Button
-- Quiz Button
-- Description Button
-- Home Navigation
-
----
-
-# 🛠 Technical Stack
-
-| Component | Technology |
-|--------|------------|
+|----------|---------|
 | Engine | Unity |
-| Language | C# |
 | AR SDK | Vuforia |
-| UI | Unity UI + TextMeshPro |
 | Platform | Android |
+| Language | C# |
+| Input | Touch + UI |
+| Domain | Educational AR |
+| Curriculum | NCERT – Human Anatomy |
 
 ---
 
-# 🧪 Design Principles
+## 🧠 High-Level System Architecture (Conceptual)
 
-- Modular architecture
-- Data-driven organ management
-- Separation of AR, UI, and logic layers
-- Performance-conscious AR rendering
-
----
-
-# 🚀 Future Enhancements
-
-- Add more organs (Brain, Lungs, Kidney, Liver)
-- Voice-based explanations
-- Markerless AR support
-- Student progress tracking
-- Multi-language support
+| Step | Component | Responsibility |
+|------|-----------|----------------|
+| 1 | NCERT Textbook Image | Physical marker scanned by camera |
+| 2 | Vuforia Image Target | Detects and tracks textbook image |
+| 3 | OrganTarget.cs | Handles AR lifecycle (spawn / destroy) |
+| 4 | OrganRegistry.cs | Provides correct organ prefab |
+| 5 | 3D Organ Prefab | Visual representation of the organ |
+| 6 | PinchToZoom.cs | Touch-based interaction |
+| 7 | FaceCamera.cs | Keeps labels facing the camera |
+| 8 | UI Controls | Toggle, refresh, quiz, info |
 
 ---
 
-# 🎓 Educational Use Case
+## 🧩 Core Data Model
 
-- Designed for school-level anatomy learning
-- Strong alignment with NCERT curriculum
-- Ideal for:
-  - Visual learners
-  - AR-assisted classrooms
-  - Self-paced exploration
+### Organ Definition (OrganVariant.cs)
+
+Each organ is represented as a pure data object.
+
+```csharp
+public class OrganVariant
+{
+    public string organName;
+    public string organDescription;
+    public GameObject basicPrefab;
+    public GameObject detailedPrefab;
+}
+```
+
+**Purpose:**
+- Separates content from logic
+- Allows new organs to be added without modifying AR code
+- Keeps anatomy data centralized and scalable
 
 ---
 
-## ⭐ Support the Project
-If you found this project useful or interesting, consider giving it a ⭐ on GitHub.
+## 🗂 Central Organ Registry (OrganRegistry.cs)
+
+The OrganRegistry acts as a singleton runtime database for all organs.
+
+| Responsibility | Description |
+|----------------|-------------|
+| Data Storage | Holds all OrganVariant entries |
+| Lookup | Uses Dictionary for O(1) access |
+| Prefab Fetching | Returns basic or detailed prefab |
+| Normalization | Converts organ names to lowercase |
+
+**Why this design?**
+- Prevents hardcoded prefab references
+- Ensures a single source of truth
+- Improves runtime performance
+
+---
+
+## 🎯 AR Image Target Handling (OrganTarget.cs)
+
+OrganTarget is attached to each Vuforia Image Target and controls the AR lifecycle.
+
+### Tracking States
+
+| State | Behavior |
+|-------|----------|
+| Tracked | Spawn organ model |
+| Extended Tracked | Keep model visible |
+| Not Tracked | Destroy organ model |
+
+### Runtime Flow
+
+| Step | Action |
+|------|--------|
+| Image detected | Fetch prefab from OrganRegistry |
+| Spawn | Instantiate organ as child of ImageTarget |
+| Setup | Attach PinchToZoom dynamically |
+| Visuals | Apply fade-in animation |
+| UI | Enable toggle button if detailed model exists |
+| Image lost | Destroy active organ model |
+
+---
+
+## 🔄 Basic ↔ Detailed Model Toggle
+
+Handled through OrganToggleUI.cs.
+
+| Action | Result |
+|--------|--------|
+| Toggle button clicked | Switch model type |
+| Fade-out | Old model smoothly disappears |
+| Spawn | New model instantiated |
+| Fade-in | Smooth transition |
+
+**Why fade animations?**
+- Avoids harsh popping
+- Improves AR stability perception
+- Enhances user experience
+
+---
+
+## ✋ Touch Interaction System (PinchToZoom.cs)
+
+Supported gestures:
+
+| Gesture | Function |
+|---------|----------|
+| Single finger drag | Rotate model (Y-axis only) |
+| Two finger pinch | Zoom in / out |
+
+**Design Decisions:**
+- Rotation restricted to Y-axis to prevent disorientation
+- Scale clamped to avoid clipping or extreme zoom
+- Threshold checks reduce touch jitter
+
+---
+
+## 🏷 Camera-Facing Labels (FaceCamera.cs)
+
+```csharp
+transform.LookAt(Camera.main.transform);
+transform.Rotate(0, 180, 0);
+```
+
+**Purpose:**
+- Ensures labels always face the camera
+- Prevents mirrored or unreadable text
+- Essential for AR readability
+
+---
+
+## 🧭 UI & Navigation
+
+### UI Control System (OrganToggleUI.cs)
+
+| Feature | Description |
+|---------|-------------|
+| Toggle Button | Switch basic ↔ detailed models |
+| Refresh Button | Clears all active models |
+| Visibility Control | Toggle button only shows when applicable |
+
+**Refresh use cases:**
+- Fix AR jitter
+- Handle partial tracking loss
+- Allow user realignment
+
+### Scene Navigation (SceneChanger.cs)
+
+Scene navigation is kept separate from AR logic to improve maintainability.
+
+| Scene | Purpose |
+|-------|---------|
+| Home | App entry point |
+| AR Scene | Main learning experience |
+| Quiz Scene | Knowledge assessment |
+
+---
+
+## 🧪 Quiz & Description System
+
+### Quiz System
+- Organ-specific question pools
+- 5 random questions per attempt
+- Immediate scoring, percentage, and grade
+
+### Description Panel
+- Organ name, Function, and Anatomical location
+- Overlay UI that preserves AR immersion
+
+---
+
+## 🧠 Architectural Principles
+
+- **Single Responsibility Principle:** Each script handles one specific task
+- **Data-driven design:** Content is separated from code
+- **Loose coupling:** AR, UI, and Data communicate via references, not direct dependencies
+- **Runtime component attachment:** Components like Zoom are added only when needed
+
+---
+
+## 🚀 Future Enhancements
+
+- [ ] Markerless AR (ARCore/ARKit)
+- [ ] Voice narration
+- [ ] Student progress tracking
+- [ ] Multi-organ sessions
+- [ ] Multi-language support
+
+---
+
+## ⭐ Acknowledgement
+
+Built using Unity and Vuforia for educational augmented reality learning.
+
+If this project helped you, consider giving it a ⭐ on GitHub.
