@@ -63,7 +63,7 @@ The project focuses on:
 
 ## 2️⃣ Basic Organ Model (Outer Anatomy)
 
-![Basic Model](docs/images/basic_model.png)
+![Basic Model](docs/images/basic_model.jpeg)
 
 ### Features
 - Displays external structure of the organ
@@ -82,7 +82,7 @@ The project focuses on:
 
 ## 3️⃣ Detailed Organ Model (Cross-Section View)
 
-![Detailed Model](docs/images/detailed_model_labels.png)
+![Detailed Model](docs/images/detailed_model_labels.jpeg)
 
 ### Features
 - Cross-sectional anatomical model
@@ -120,7 +120,7 @@ Centralized system that manages all organ data.
 
 ## 5️⃣ Interactive Quiz System
 
-![Quiz Result](docs/images/quiz_result.png)
+![Quiz Result](docs/images/quiz_result.jpeg)
 
 ### Quiz Logic
 - Organ-specific questions
@@ -140,7 +140,7 @@ Centralized system that manages all organ data.
 
 ## 6️⃣ Organ Description Panel
 
-![Organ Description](docs/images/organ_description.png)
+![Organ Description](docs/images/organ_description.jpeg)
 
 ### Information Displayed
 - Organ name
